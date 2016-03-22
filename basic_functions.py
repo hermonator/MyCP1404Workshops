@@ -13,12 +13,15 @@ __author__ = 'Lindsay Ward'
 def main():
     lowest, highest = get_limits()
     print("lowest =", lowest, "highest =", highest)
-    print_between(lowest, highest)
+    #print_between(lowest, highest)
 
 
 def get_limits():
     minimum = int(input("Enter the minimum: "))
-    maximum = int(input("Enter the maximum: "))
+    maximum = int(input("Enter the maximum ({} or above): ".format(minimum)))
+    while maximum < minimum:
+        print('Maximum too low!')
+        maximum = int(input("Enter the maximum ({} or above): ".format(minimum)))
     return minimum, maximum
 
 
